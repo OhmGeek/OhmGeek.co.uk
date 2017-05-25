@@ -15,7 +15,7 @@ export default class MainPage extends Component {
     return (
       <div>
         <Box>
-          <Hero size="large" backgroundImage="http://forum.us.herozerogame.com/public/style_images/herozero_master/custom/background.jpg" colorIndex="light-1">
+          <Hero size="medium" backgroundImage="http://forum.us.herozerogame.com/public/style_images/herozero_master/custom/background.jpg" colorIndex="light-1">
             <Heading strong={true} tag="h1">
               Ryan Collins, Web Developer
             </Heading>
