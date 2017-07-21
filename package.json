@@ -1,0 +1,22 @@
+{
+  "name": "ohmgeek.co.uk",
+  "version": "1.0.0",
+  "description": "My website.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OhmGeek/OhmGeek.co.uk.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OhmGeek/OhmGeek.co.uk/issues"
+  },
+  "homepage": "https://github.com/OhmGeek/OhmGeek.co.uk#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
