@@ -5,6 +5,8 @@ import Heading from 'grommet/components/Heading';
 import Section from 'grommet/components/Section';
 import Card from 'grommet/components/Card';
 import Anchor from 'grommet/components/Anchor';
+import Image from 'grommet/components/Image';
+import Columns from 'grommet/components/Columns';
 export default class MainPage extends Component {
   constructor(props) {
     super();
@@ -14,30 +16,47 @@ export default class MainPage extends Component {
   render() {
     return (
       <div>
-        <Box>
-          <Hero size="medium" backgroundImage="http://forum.us.herozerogame.com/public/style_images/herozero_master/custom/background.jpg" colorIndex="light-1">
-            <Heading strong={true} tag="h1">
-              Ryan Collins, Software Engineer
-            </Heading>
-          </Hero>
-        </Box>
+      <Hero background={<Image src='/background.jpg'
+            fit='cover'
+            full={true} />}
+            backgroundColorIndex='light'>
+            <Box direction='row'
+                 justify='center'
+                 align='center'>
+                 <Box basis='1/2'
+                      align='end'
+                      pad='medium'>
+                      <Image src='/Me.jpg' />
+                 </Box>
+                 <Box basis='1/2'
+                      align='start'
+                      pad='medium'>
+                      <Heading tag='h1' strong={true} margin='none' >
+                        Ryan Collins - Software Engineer
+                      </Heading>
+                </Box>
+            </Box>
+        </Hero>
         <Section>
           <Heading strong={false} tag="h2">
               Connect with me on Social Media
           </Heading>
-          <Card heading="GitHub"
-                link={<Anchor href='https://Github.com/OhmGeek'
-                              label='View Code' />}
-                thumbnail="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png"
-                description="Many of my programming projects are on GitHub. Why not take a look?"
-          />
-          <Card heading="LinkedIn"
-                link={<Anchor href='https://www.linkedin.com/in/ryan-j-collins/'
-                              label='Network with me' />}
-                thumbnail="https://content.linkedin.com/content/dam/brand/site/img/policies/member-logo-examples.png"
-                description="Many of my programming projects are on GitHub. Why not take a look?"
-          />
+          <Columns>
+            <Card heading="GitHub"
+                  link={<Anchor href='https://Github.com/OhmGeek'
+                                label='View Code' />}
+                  thumbnail="/GitHub-Mark.png"
+                  description="Many of my programming projects are on GitHub. Why not take a look?"
+            />
+            <Card heading="LinkedIn"
+                  link={<Anchor href='https://www.linkedin.com/in/ryan-j-collins/'
+                                label='Network with me' />}
+                  thumbnail="/LinkedIn-Mark.png"
+                description="Get it touch with me via LinkedIn, or connect with me."
+                />
+          </Columns>
         </Section>
+
       </div>
     );
   }
