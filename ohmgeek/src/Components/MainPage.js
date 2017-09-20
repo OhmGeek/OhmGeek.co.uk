@@ -7,16 +7,24 @@ import Card from 'grommet/components/Card';
 import Anchor from 'grommet/components/Anchor';
 import Image from 'grommet/components/Image';
 import Columns from 'grommet/components/Columns';
+
+// Photos
+import background from './../background.jpg';
+import githubmark from './../GitHub-Mark.png';
+import myself from './../Me.jpg';
+import linkedin from './../LinkedIn-Mark.png';
+
 export default class MainPage extends Component {
   constructor(props) {
     super();
     this.props = props;
+
   }
 
   render() {
     return (
       <div>
-      <Hero background={<Image src='/background.jpg'
+      <Hero background={<Image src={background}
             fit='cover'
             full={true} />}
             backgroundColorIndex='light'>
@@ -26,7 +34,7 @@ export default class MainPage extends Component {
                  <Box basis='1/2'
                       align='end'
                       pad='medium'>
-                      <Image src='/Me.jpg' />
+                      <Image src={myself}/>
                  </Box>
                  <Box basis='1/2'
                       align='start'
@@ -45,13 +53,13 @@ export default class MainPage extends Component {
             <Card heading="GitHub"
                   link={<Anchor href='https://Github.com/OhmGeek'
                                 label='View Code' />}
-                  thumbnail="/GitHub-Mark.png"
+                  thumbnail={githubmark}
                   description="Many of my programming projects are on GitHub. Why not take a look?"
             />
             <Card heading="LinkedIn"
                   link={<Anchor href='https://www.linkedin.com/in/ryan-j-collins/'
                                 label='Network with me' />}
-                  thumbnail="/LinkedIn-Mark.png"
+                  thumbnail={linkedin}
                 description="Get it touch with me via LinkedIn, or connect with me."
                 />
           </Columns>
