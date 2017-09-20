@@ -2,7 +2,7 @@
   "name": "ohmgeek",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ohmgeek.com",
+  "homepage": "https://ohmgeek.com/",
   "dependencies": {
     "gh-pages": "^1.0.0",
     "grommet": "^1.4.0",
