@@ -21,6 +21,9 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: '14'
+    - uses: oleksiyrudenko/gha-git-credentials@v2-latest
+      with:
+        token: '${{ secrets.GITHUB_TOKEN }}'
     - name: npm install
       run: npm install
       working-directory: ./ohmgeek
@@ -34,4 +37,4 @@ jobs:
         REPO: self
         BRANCH: gh-pages
         FOLDER: ohmgeek/build
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
