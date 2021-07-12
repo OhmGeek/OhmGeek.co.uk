@@ -21,6 +21,10 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: '14'
+    - name: npm install
+      run: npm install
+      working-directory: ./ohmgeek
+
     - name: npm deploy
       run: npm run deploy
       working-directory: ./ohmgeek
