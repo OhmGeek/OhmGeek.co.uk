@@ -22,8 +22,7 @@ jobs:
       with:
         node-version: '14'
     - name: set up git credentials
-      run: git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-           | git config --global user.name "GitHub Actions"
+      run: git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com" && git config --global user.name "GitHub Actions"
     - name: npm install
       run: npm install
       working-directory: ./ohmgeek
