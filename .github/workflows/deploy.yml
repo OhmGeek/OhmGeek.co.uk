@@ -28,8 +28,9 @@ jobs:
       working-directory: ./ohmgeek
 
     - name: npm deploy
-      run: npm run deploy
+      run: npm run build
       working-directory: ./ohmgeek
+
     - name: Deploy
       uses: s0/git-publish-subdir-action@develop
       env:
