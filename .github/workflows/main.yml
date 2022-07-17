@@ -4,6 +4,7 @@ permissions:
   contents: read
   # these permissions are required for the action to work properly
   pages: write
+  deployments: write
   id-token: write
 
 on:
@@ -14,6 +15,9 @@ jobs:
   build:
     name: Build Jekyll
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v2
       - name: Build the site in the jekyll/builder container
@@ -36,7 +40,7 @@ jobs:
           path: gh-pages-${{ github.sha }}.tar
 
       - name: Deploy to GitHub Pages
-        id: github-pages # this needs to match the ID referenced in environment.url above
+        id: deployment # this needs to match the ID referenced in environment.url above
         uses: actions/deploy-pages@v1
         with:
           emit_telemetry: false # telemetry is not currently supported for custom builds
