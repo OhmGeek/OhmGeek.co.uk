@@ -1,28 +1,12 @@
 # OhmGeek.co.uk
-My personal website, upgraded!
+This is the complete website of OhmGeek.co.uk.
 
-## Tools used:
-  - React
-  - Grommet UI
-  - npm
-  
-## Working with the project:
-### Running a development server
-Simply run the command:
+This utilises the [Beautiful Jekyll](https://github.com/daattali/beautiful-jekyll) template.
 
-```bash
-npm start
 ```
-This will start the dev server which will autoupdate.
+# Install the dependencies
+bundle install
 
-### Running the build
-Build the entire site by running
-
-```bash
-npm run build
+# Local dev server (save and refresh, and you can see the output quickly)
+bundle exec jekyll serve
 ```
-
-Anything in the build folder needs to be transferred via FTP to the web host.
-
-
-
