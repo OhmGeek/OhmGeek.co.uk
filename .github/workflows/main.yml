@@ -1,0 +1,42 @@
+name: Build and Deploy to OhmGeek.co.uk
+
+permissions:
+  contents: read
+  # these permissions are required for the action to work properly
+  pages: write
+  id-token: write
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build Jekyll
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the site in the jekyll/builder container
+        run: |
+          export JEKYLL_VERSION=3.8
+          docker run \
+          -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+          -e PAGES_REPO_NWO=${{ github.repository }} \
+          jekyll/builder:$JEKYLL_VERSION /bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future"
+      - name: Create Archive
+        run: tar -vv --create --file gh-pages-${{ github.sha }}.tar --directory _site .
+
+      - name: Upload Archive
+        uses: actions/upload-artifact@v3
+        with:
+          # This name can be anything. The deploy-pages action currently
+          # looks for the first artifact to be uploaded
+          name: Built Website
+          # this path must match the one given to `tar` above.
+          path: gh-pages-${{ github.sha }}.tar
+
+      - name: Deploy to GitHub Pages
+        id: deployment # this needs to match the ID referenced in environment.url above
+        uses: actions/deploy-pages@v1
+        with:
+          emit_telemetry: false # telemetry is not currently supported for custom builds
